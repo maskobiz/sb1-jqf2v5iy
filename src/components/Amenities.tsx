@@ -39,9 +39,10 @@ const Amenities: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<AmenityCategory>('indoor');
   
   return (
-    <section id="amenities" className="py-20">
-      <div className="animate-slide-up">
-        <h2 className="section-title">Amenities</h2>
+    <section id="amenities" className="pt-8 pb-0">
+      <div className="max-w-screen-xl mx-auto px-4 animate-slide-up mt-12">
+      <div className="animate-slide-up mt-12">
+        <h2 className="section-title text-center mb-12">Amenities</h2>
         
         {/* Category Tabs */}
         <div className="flex mb-8 border-b">
@@ -68,19 +69,19 @@ const Amenities: React.FC = () => {
         </div>
         
         {/* Amenities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {amenitiesData[activeCategory].map(amenity => (
             <div 
               key={amenity.id}
-              className="bg-white rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md border border-slate-100"
+              className="bg-white rounded-xl p-4 shadow-sm transition-all duration-300 hover:shadow-md border border-slate-100"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3">
                 <div className="p-3 bg-blue-50 rounded-full">
                   <div className="text-blue-600 w-6 h-6">
                     {amenity.icon}
                   </div>
                 </div>
-                <div>
+              <div>
                   <h3 className="font-bold text-lg mb-1">{amenity.name}</h3>
                   <p className="text-slate-600 text-sm">{amenity.description}</p>
                 </div>
@@ -128,6 +129,7 @@ const Amenities: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

@@ -1,123 +1,249 @@
 import React from 'react';
-import { Home, Users, Bath, BedDouble, Maximize, Building, MapPin, Award } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import { Star, Users, Wifi, Mountain, MapPin, Coffee, Snowflake } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+const images = [
+  'https://framerusercontent.com/images/aMtrHv2hjKWcQlDdXmapL5wNt9I.webp',
+  'https://images.unsplash.com/photo-1575517111478-7f6afd0973db',
+  'https://images.unsplash.com/photo-1613490493576-7fde63acd811',
+];
+
+const images2 = [
+  'https://images.unsplash.com/photo-1512917774080-9991f1c4c750',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9',
+];
 
 const PropertyDetails: React.FC = () => {
   return (
-    <section id="property" className="py-20">
-      <div className="animate-slide-up">
-        <h2 className="section-title">Property Overview</h2>
-        
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Oceanfront Villa Paradise</h1>
-          <p className="text-xl text-slate-600 mb-8">
-            Luxury living meets tropical paradise in this exclusive beachfront property
-          </p>
-          <p className="text-lg text-slate-700 max-w-4xl mb-10">
-            Nestled on a pristine private beach, this stunning oceanfront villa offers an unparalleled luxury experience. With breathtaking panoramic views, modern architectural design, and world-class amenities, it's the perfect escape for those seeking the ultimate in privacy, comfort, and natural beauty.
-          </p>
-          
-          {/* Key Features */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <FeatureCard icon={<BedDouble />} title="4 Bedrooms" description="Spacious master suites" />
-            <FeatureCard icon={<Bath />} title="3.5 Bathrooms" description="Modern fixtures" />
-            <FeatureCard icon={<Users />} title="8 Guests" description="6 adults, 2 children" />
-            <FeatureCard icon={<Maximize />} title="3,200 sq ft" description="Plus outdoor living" />
-          </div>
-          
-          {/* Standout Features */}
-          <div className="bg-slate-50 p-6 md:p-8 rounded-xl mb-12">
-            <h3 className="text-xl font-bold mb-4">Standout Features</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <p>Private infinity pool overlooking the ocean</p>
+    <section id="property-details-section" className="py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Section Header */}
+        <div className="mb-12 text-center">
+          <h2 className="section-title text-center mb-12">
+            Property
+          </h2>
+          {/* <p className="text-lg text-gray-600 max-w-xl mx-auto">
+          Explore our luxurious apartments & rooms that are filled with all you need for the perfect swiss vacation.
+          </p> */}
+        </div>
+
+        {/* Properties */}
+        <div className="flex flex-col gap-16">
+          {/* First Property */}
+          <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-3xl shadow-xl overflow-hidden">
+            {/* Left: Swiper */}
+            <div className="relative w-full h-[400px] md:h-[650px]">
+              <div className="absolute top-6 left-6 z-10 bg-black/80 text-white px-4 py-2 rounded-full backdrop-blur-sm">
+                From €199/night
               </div>
-              <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <p>Direct beach access with private cabana</p>
+              <Swiper
+                spaceBetween={0}
+                slidesPerView={1}
+                loop
+                navigation
+                modules={[Navigation]}
+                className="h-full"
+              >
+                {images.map((url, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={url}
+                      alt={`Luxury Chalet view ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* Right: Info */}
+            <div className="p-8 flex flex-col justify-between">
+              <div className="flex flex-col gap-6">
+                {/* Rating */}
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400"
+                        fill="currentColor"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-gray-600 font-medium">4.9 (128 reviews)</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  Alpine Luxury Chalet
+                </h3>
+
+                {/* Description */}
+                <p className="text-lg text-gray-600">
+                  Experience the perfect blend of traditional alpine charm and modern luxury in our
+                  spacious chalet. Nestled in the heart of the Swiss Alps, this property offers
+                  breathtaking mountain views and world-class amenities.
+                </p>
+
+                {/* Amenities */}
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div className="flex items-center gap-3">
+                    <Users className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Up to 8 guests</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mountain className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Ski-in/Ski-out</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Wifi className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">High-speed WiFi</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Prime Location</span>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-2 mt-4">
+                  <MapPin className="w-5 h-5 text-gray-600 mt-1" />
+                  <div>
+                    <p className="text-gray-900 font-medium">Swiss Alps, Switzerland</p>
+                    <p className="text-gray-600">10 minutes from ski lifts</p>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <p>Gourmet kitchen with high-end appliances</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <p>Outdoor entertainment area with BBQ</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Award className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
-                <p>Smart home technology throughout</p>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <a
+                  href="/booking"
+                  className="bg-black text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-gray-800 transition text-center"
+                >
+                  Book Now
+                </a>
+                <a
+                  href="/pricing"
+                  className="border-2 border-black text-black text-lg font-semibold px-8 py-4 rounded-full hover:bg-black hover:text-white transition text-center"
+                >
+                  View Details
+                </a>
               </div>
             </div>
           </div>
-          
-          {/* Property Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Property Details</h3>
-              <div className="space-y-3">
-                <Detail icon={<Building />} label="Property Type" value="Detached Villa" />
-                <Detail icon={<Home />} label="Year Built" value="2021" />
-                <Detail icon={<Maximize />} label="Indoor Space" value="3,200 sq ft" />
-                <Detail icon={<Maximize />} label="Outdoor Space" value="2,100 sq ft" />
-                <Detail icon={<MapPin />} label="Beach Front" value="180 ft private shoreline" />
+
+          {/* Second Property */}
+          <div className="grid grid-cols-1 md:grid-cols-2 bg-white rounded-3xl shadow-xl overflow-hidden">
+            {/* Right: Swiper */}
+            <div className="relative w-full h-[400px] md:h-[650px] order-1 md:order-2">
+              <div className="absolute top-6 left-6 z-10 bg-black/80 text-white px-4 py-2 rounded-full backdrop-blur-sm">
+                From €249/night
               </div>
+              <Swiper
+                spaceBetween={0}
+                slidesPerView={1}
+                loop
+                navigation
+                modules={[Navigation]}
+                className="h-full"
+              >
+                {images2.map((url, index) => (
+                  <SwiperSlide key={index}>
+                    <img
+                      src={url}
+                      alt={`Modern Villa view ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            
-            <div>
-              <h3 className="text-xl font-bold mb-4">Location Highlights</h3>
-              <div className="space-y-3">
-                <Detail icon={<MapPin />} label="Nearest Airport" value="Punta Cana International (25 min)" />
-                <Detail icon={<MapPin />} label="Nearest Town" value="Las Terrenas (15 min)" />
-                <Detail icon={<MapPin />} label="Nearest Restaurant" value="Beachside Grill (5 min walk)" />
-                <Detail icon={<MapPin />} label="Nearest Supermarket" value="Market Fresh (10 min drive)" />
-                <Detail icon={<MapPin />} label="Beach Access" value="Direct private access" />
+
+            {/* Left: Info */}
+            <div className="p-8 flex flex-col justify-between order-2 md:order-1">
+              <div className="flex flex-col gap-6">
+                {/* Rating */}
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400"
+                        fill="currentColor"
+                      />
+                    ))}
+                  </div>
+                  <span className="text-gray-600 font-medium">4.8 (96 reviews)</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+                  Modern Mountain Villa
+                </h3>
+
+                {/* Description */}
+                <p className="text-lg text-gray-600">
+                  A contemporary masterpiece with floor-to-ceiling windows offering panoramic mountain 
+                  views. This villa combines sleek modern design with the warmth of alpine living, 
+                  featuring a private hot tub and state-of-the-art entertainment system.
+                </p>
+
+                {/* Amenities */}
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  <div className="flex items-center gap-3">
+                    <Users className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Up to 6 guests</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Snowflake className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Private Hot Tub</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Coffee className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Espresso Machine</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Wifi className="w-5 h-5 text-gray-600" />
+                    <span className="text-gray-600">Smart Home System</span>
+                  </div>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-start gap-2 mt-4">
+                  <MapPin className="w-5 h-5 text-gray-600 mt-1" />
+                  <div>
+                    <p className="text-gray-900 font-medium">Austrian Alps, Austria</p>
+                    <p className="text-gray-600">5 minutes from village center</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <a
+                  href="/booking"
+                  className="bg-black text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-gray-800 transition text-center"
+                >
+                  Book Now
+                </a>
+                <a
+                  href="/pricing"
+                  className="border-2 border-black text-black text-lg font-semibold px-8 py-4 rounded-full hover:bg-black hover:text-white transition text-center"
+                >
+                  View Details
+                </a>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
-  );
-};
-
-interface FeatureCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
-
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
-  return (
-    <div className="feature-card">
-      <div className="flex flex-col items-center text-center">
-        <div className="p-3 bg-blue-50 rounded-full mb-4">
-          <div className="text-blue-600 w-6 h-6">
-            {icon}
-          </div>
-        </div>
-        <h3 className="font-bold text-lg mb-1">{title}</h3>
-        <p className="text-slate-600 text-sm">{description}</p>
-      </div>
-    </div>
-  );
-};
-
-interface DetailProps {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}
-
-const Detail: React.FC<DetailProps> = ({ icon, label, value }) => {
-  return (
-    <div className="flex items-center gap-3">
-      <div className="text-blue-600 w-5 h-5 flex-shrink-0">{icon}</div>
-      <div className="flex flex-col">
-        <span className="text-sm text-slate-500">{label}</span>
-        <span className="font-medium">{value}</span>
-      </div>
-    </div>
   );
 };
 

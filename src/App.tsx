@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import PropertyDetails from './components/PropertyDetails';
@@ -13,19 +14,25 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="bg-white text-slate-800">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
-        <HeroSection />
-        <div className="container mx-auto px-4 md:px-8">
-          <PropertyDetails />
-          <PhotoGallery />
-          <Amenities />
-          <Location />
-          <Pricing />
-          <Policies />
-          <Booking />
-        </div>
+      <main className="overflow-hidden">
+        <Routes>
+          <Route path="/" element={
+            <>
+              <HeroSection />
+              <div className="space-y-16 md:space-y-12">
+                <PropertyDetails />
+                <PhotoGallery />
+                <Amenities />
+                <Location />
+              </div>
+            </>
+          } />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/policies" element={<Policies />} />
+          <Route path="/booking" element={<Booking />} />
+        </Routes>
       </main>
       <Footer />
       <ScrollToTop />

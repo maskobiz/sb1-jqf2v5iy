@@ -3,9 +3,9 @@ import { MapPin, Clock } from 'lucide-react';
 
 const Location: React.FC = () => {
   return (
-    <section id="location" className="py-20">
-      <div className="animate-slide-up">
-        <h2 className="section-title">Location</h2>
+    <section id="location" className="pt-20 pb-20">
+      <div className="animate-slide-up mt-12">
+        <h2 className="section-title text-center mb-12">Location</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <div>
@@ -46,7 +46,7 @@ const Location: React.FC = () => {
           </div>
           
           <div>
-            <div className="h-[400px] bg-slate-200 rounded-xl overflow-hidden">
+            <div className="h-[610px] bg-slate-200 rounded-xl overflow-hidden">
               {/* Interactive Map - Using iframe to Google Maps */}
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60553.05580465783!2d-69.59086566035072!3d19.32155272744654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eae1f5920aac3a5%3A0x4fc7a73b64948781!2sLas%20Terrenas%2C%20Dominican%20Republic!5e0!3m2!1sen!2sus!4v1720229129635!5m2!1sen!2sus" 
@@ -60,7 +60,7 @@ const Location: React.FC = () => {
               ></iframe>
             </div>
             
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <h3 className="text-xl font-bold mb-4">About the Neighborhood</h3>
               <p className="text-slate-700 mb-4">
                 Las Terrenas is a charming beach town known for its beautiful white sand beaches, turquoise waters, and international community. Once a small fishing village, it has transformed into a vibrant destination while maintaining its authentic Dominican character.
@@ -68,7 +68,7 @@ const Location: React.FC = () => {
               <p className="text-slate-700">
                 The area offers a perfect mix of relaxation and adventure - from lounging on pristine beaches to exploring lush mountains, taking boat tours, or enjoying the local culinary scene with its blend of Caribbean, French, and Italian influences.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
         
@@ -92,7 +92,7 @@ const Location: React.FC = () => {
               title="Los Haitises National Park" 
               description="Coastal reserve with mangrove forests, caves with Taíno art, and diverse wildlife" 
               distance="Day trip"
-              image="https://images.pexels.com/photos/5257570/pexels-photo-5257570.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              image="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80"
             />
           </div>
         </div>
